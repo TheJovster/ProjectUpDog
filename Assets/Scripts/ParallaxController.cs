@@ -17,7 +17,7 @@ public class ParallaxController : MonoBehaviour
         [Tooltip("Higher = nearer = faster. Foreground ~1, near ~0.75, mid ~0.5, far ~0.15, static = 0.")]
         public float factor = 0.5f;
 
-        [Tooltip("Vertical distance after which the art repeats. 0 = auto-read the SpriteRenderer height.")]
+        [Tooltip("Vertical distance after which the art repeats. 0 = auto: one tile for Tiled sprites, full height otherwise.")]
         public float loopHeight = 0f;
 
         [System.NonSerialized] public Vector3 offset;   // placement relative to the camera
@@ -54,11 +54,24 @@ public class ParallaxController : MonoBehaviour
             layer.offset = layer.transform.position - camPos;
             layer.scrolled = 0f;
 
-            // Explicit loop height wins; otherwise fall back to the sprite's height.
-            layer.resolvedLoop = layer.loopHeight;
-            if (layer.resolvedLoop <= 0f && layer.transform.TryGetComponent(out SpriteRenderer sprite))
-                layer.resolvedLoop = sprite.bounds.size.y;
+            layer.resolvedLoop = ResolveLoopHeight(layer);
         }
+    }
+
+    private static float ResolveLoopHeight(Layer layer)
+    {
+        if (layer.loopHeight > 0f) return layer.loopHeight;   // explicit always wins
+
+        if (!layer.transform.TryGetComponent(out SpriteRenderer sprite) || sprite.sprite == null)
+            return 0f;
+
+        // Tiled strip repeats every single tile, so that is the seamless loop and
+        // the strip only needs ~one tile of headroom past the view.
+        if (sprite.drawMode == SpriteDrawMode.Tiled)
+            return sprite.sprite.bounds.size.y * layer.transform.lossyScale.y;
+
+        // Single sprite: loop is its full height (needs two stacked copies to hide the snap).
+        return sprite.bounds.size.y;
     }
 
     private void LateUpdate()
@@ -80,7 +93,7 @@ public class ParallaxController : MonoBehaviour
 
             layer.scrolled += step * layer.factor;
 
-            // Wrap within one loop so a tiled layer never runs out.
+            // Wrap within one loop so the layer never runs out.
             if (layer.resolvedLoop > 0f)
             {
                 layer.scrolled %= layer.resolvedLoop;
