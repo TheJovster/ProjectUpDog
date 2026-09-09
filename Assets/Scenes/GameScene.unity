@@ -659,9 +659,7 @@ MonoBehaviour:
   - transform: {fileID: 501988496}
     factor: 0.1
     loopHeight: -4
-  _baseScrollSpeed: 6
-  _playerInfluence: 4
-  _player: {fileID: 1696760571}
+  _gameManager: {fileID: 0}
   _camera: {fileID: 519420031}
 --- !u!1 &1211364264
 GameObject:
@@ -935,7 +933,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -954,16 +952,16 @@ MonoBehaviour:
   _moveAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _horizontalAcceleration: 30
   _horizontalMaxSpeed: 8
-  _horizontalDrag: 20
+  _horizontalDrag: 16
   _upwardBaseSpeed: 3
   _upwardMaxSpeed: 8
   _downwardMaxSpeed: 4
   _verticalAcceleration: 25
-  _bounceStrength: 2
+  _bounceStrength: 8
   _collisionDamping: 0.6
   _screenBoundaryStrength: 40
-  _lowerBandFraction: 0.25
-  _upperBandFraction: 0.6
+  _lowerBandFraction: 0.2
+  _upperBandFraction: 0.2
   _bandStrength: 40
 --- !u!50 &1696760572
 Rigidbody2D:

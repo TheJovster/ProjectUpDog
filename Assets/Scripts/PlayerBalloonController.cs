@@ -107,6 +107,16 @@ public class PlayerBalloonController : MonoBehaviour
             _velocity.y += (min.y - pos.y) * _bandStrength * dt;
     }
 
+    /// Hard reset used by checkpoint respawn — clears momentum so the player
+    /// does not resume with pre-death velocity.
+    public void ResetTo(Vector3 position)
+    {
+        transform.position = position;
+        _velocity = Vector2.zero;
+        _input = Vector2.zero;
+        if (_rigidbody != null) _rigidbody.linearVelocity = Vector2.zero;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Reflect off the surface normal, bleed energy (damping < 1 prevents

@@ -9,6 +9,16 @@ public class SceneLoader : MonoBehaviour
 
     [SerializeField] private string _gameSceneName = "GameScene";
 
+    private void Awake()
+    {
+        ServiceRegistry.Instance.Register(this);
+    }
+
+    private void OnDestroy()
+    {
+        ServiceRegistry.Instance.Unregister(this);
+    }
+
     private void Start()
     {
         _startGameButton.onClick.AddListener(StartGame);

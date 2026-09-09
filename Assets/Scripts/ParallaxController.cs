@@ -1,8 +1,8 @@
 using UnityEngine;
 
 /// Fixed-camera vertical parallax (GDD §2, §9–§14). Each layer is kept centered
-/// on the camera so it always fills the view, and its content scrolls downward
-/// at speed * factor, wrapping on a loop height for seamless endless depth.
+/// on the camera so it always fills the view, and its content is offset by
+/// GameManager.Distance * factor, wrapped on a loop height for seamless depth.
 ///
 /// FACTOR CONVENTION: higher = nearer = faster. Foreground ~1.0, near ~0.75,
 /// mid ~0.4–0.6, far ~0.1–0.3, fully static = 0. (This is NOT the camera-follow
@@ -27,14 +27,8 @@ public class ParallaxController : MonoBehaviour
 
     [SerializeField] private Layer[] _layers;
 
-    [Tooltip("Neutral downward scroll speed (units/sec) representing base ascent.")]
-    [SerializeField] private float _baseScrollSpeed = 6f;
-
-    [Tooltip("Extra scroll speed added per unit of player upward input (GDD §12).")]
-    [SerializeField] private float _playerInfluence = 4f;
-
-    [Tooltip("Optional. When set, holding Up speeds the scroll for perceived faster ascent.")]
-    [SerializeField] private PlayerBalloonController _player;
+    [Tooltip("Owns scroll distance. Layers are a pure function of it, so checkpoint restore needs no parallax state.")]
+    [SerializeField] private GameManager _gameManager;
 
     [Tooltip("Leave empty to use Camera.main.")]
     [SerializeField] private Camera _camera;
@@ -78,12 +72,9 @@ public class ParallaxController : MonoBehaviour
     {
         if (_layers == null || _camera == null) return;
 
-        // effectiveScrollSpeed = base + player upward contribution (GDD §12).
-        float scrollSpeed = _baseScrollSpeed;
-        if (_player != null)
-            scrollSpeed += _player.UpwardContribution * _playerInfluence;
-
-        float step = scrollSpeed * Time.deltaTime;
+        // Read the authoritative distance rather than integrating a local timer,
+        // so rewinding distance rewinds parallax for free.
+        float distance = _gameManager != null ? _gameManager.Distance : 0f;
         Vector3 camPos = _camera.transform.position;
 
         for (int i = 0; i < _layers.Length; i++)
@@ -91,7 +82,7 @@ public class ParallaxController : MonoBehaviour
             Layer layer = _layers[i];
             if (layer.transform == null) continue;
 
-            layer.scrolled += step * layer.factor;
+            layer.scrolled = distance * layer.factor;
 
             // Wrap within one loop so the layer never runs out.
             if (layer.resolvedLoop > 0f)
