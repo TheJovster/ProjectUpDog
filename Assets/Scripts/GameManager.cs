@@ -1,20 +1,16 @@
 using UnityEngine;
 
-/// Prototype god class: owns game state, scroll distance, health, checkpoint,
-/// death/respawn and win. Deliberately monolithic for build speed.
-/// Distance is the single source of truth — LevelRoot placement and parallax
-/// are pure functions of it, so checkpoint restore is one float assignment.
+/// Prototype god class: owns game state, health, checkpoint, death/respawn
+/// and win. Deliberately monolithic for build speed.
+/// Scroll distance lives on WorldScroller; this drives it and stores its
+/// distance in checkpoints, so restore is one float assignment.
 public class GameManager : MonoBehaviour
 {
-    public enum State { Playing, Dialogue, Dead, Win }
+    public enum State { Playing, Dialogue, Cutscene, Dead, Win }
 
     [Header("Scene References")]
     [SerializeField] private PlayerBalloonController _player;
-    [SerializeField] private Transform _levelRoot;
-
-    [Header("Scroll")]
-    [SerializeField] private float _baseScrollSpeed = 6f;
-    [SerializeField] private float _playerInfluence = 4f;
+    [SerializeField] private WorldScroller _worldScroller;
 
     [Header("Health")]
     [SerializeField] private int _maxHealth = 3;
@@ -24,7 +20,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Vector3 _startPosition = Vector3.zero;
 
     public State Current { get; private set; } = State.Playing;
-    public float Distance { get; private set; }
     public int Health { get; private set; }
 
     // Latest checkpoint. Defaults to level start.
@@ -53,29 +48,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Current == State.Dead)
-        {
-            _respawnTimer -= Time.deltaTime;
-            if (_respawnTimer <= 0f) RespawnAtCheckpoint();
-            return;
-        }
+        if (Current != State.Dead) return;
 
-        if (Current != State.Playing) return;
-
-        // Distance accumulates at base speed plus the player's upward effort (GDD §12).
-        float speed = _baseScrollSpeed;
-        if (_player != null) speed += _player.UpwardContribution * _playerInfluence;
-        Distance += speed * Time.deltaTime;
-
-        ApplyDistance();
-    }
-
-    private void ApplyDistance()
-    {
-        if (_levelRoot == null) return;
-        Vector3 pos = _levelRoot.position;
-        pos.y = -Distance;
-        _levelRoot.position = pos;
+        _respawnTimer -= Time.deltaTime;
+        if (_respawnTimer <= 0f) RespawnAtCheckpoint();
     }
 
     // --- Health ---------------------------------------------------------
@@ -102,16 +78,19 @@ public class GameManager : MonoBehaviour
 
     public void SetCheckpoint(Vector3 playerPosition)
     {
-        _checkpointDistance = Distance;
+        _checkpointDistance = _worldScroller != null ? _worldScroller.Distance : 0f;
         _checkpointPosition = playerPosition;
         _checkpointHealth = Health;
     }
 
     private void RespawnAtCheckpoint()
     {
-        Distance = _checkpointDistance;
         Health = _checkpointHealth;
-        ApplyDistance();
+        if (_worldScroller != null)
+        {
+            _worldScroller.SetDistance(_checkpointDistance);
+            _worldScroller.StartScrolling();
+        }
 
         if (_player != null)
         {
@@ -129,12 +108,14 @@ public class GameManager : MonoBehaviour
         Current = State.Dead;
         _respawnTimer = _respawnDelay;
         if (_player != null) _player.enabled = false;
+        if (_worldScroller != null) _worldScroller.StopScrolling();
     }
 
     public void Win()
     {
         Current = State.Win;
         if (_player != null) _player.enabled = false;
+        if (_worldScroller != null) _worldScroller.StopScrolling();
     }
 
     /// Called by NPC triggers to pause play for dialogue (GDD §21).
@@ -143,6 +124,24 @@ public class GameManager : MonoBehaviour
         if (Current != State.Playing) return;
         Current = State.Dialogue;
         if (_player != null) _player.enabled = false;
+        if (_worldScroller != null) _worldScroller.StopScrolling();
+    }
+
+    /// Slideshow cutscenes freeze play the same way dialogue does (GDD §21 pattern).
+    public void EnterCutscene()
+    {
+        if (Current != State.Playing) return;
+        Current = State.Cutscene;
+        if (_player != null) _player.enabled = false;
+        if (_worldScroller != null) _worldScroller.StopScrolling();
+    }
+
+    public void ExitCutscene()
+    {
+        if (Current != State.Cutscene) return;
+        Current = State.Playing;
+        if (_player != null) _player.enabled = true;
+        if (_worldScroller != null) _worldScroller.StartScrolling();
     }
 
     public void ExitDialogue()
@@ -150,5 +149,6 @@ public class GameManager : MonoBehaviour
         if (Current != State.Dialogue) return;
         Current = State.Playing;
         if (_player != null) _player.enabled = true;
+        if (_worldScroller != null) _worldScroller.StartScrolling();
     }
 }

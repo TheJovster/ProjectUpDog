@@ -2,7 +2,7 @@ using UnityEngine;
 
 /// Fixed-camera vertical parallax (GDD §2, §9–§14). Each layer is kept centered
 /// on the camera so it always fills the view, and its content is offset by
-/// GameManager.Distance * factor, wrapped on a loop height for seamless depth.
+/// WorldScroller.Distance * factor, wrapped on a loop height for seamless depth.
 ///
 /// FACTOR CONVENTION: higher = nearer = faster. Foreground ~1.0, near ~0.75,
 /// mid ~0.4–0.6, far ~0.1–0.3, fully static = 0. (This is NOT the camera-follow
@@ -28,7 +28,7 @@ public class ParallaxController : MonoBehaviour
     [SerializeField] private Layer[] _layers;
 
     [Tooltip("Owns scroll distance. Layers are a pure function of it, so checkpoint restore needs no parallax state.")]
-    [SerializeField] private GameManager _gameManager;
+    [SerializeField] private WorldScroller _worldScroller;
 
     [Tooltip("Leave empty to use Camera.main.")]
     [SerializeField] private Camera _camera;
@@ -74,7 +74,7 @@ public class ParallaxController : MonoBehaviour
 
         // Read the authoritative distance rather than integrating a local timer,
         // so rewinding distance rewinds parallax for free.
-        float distance = _gameManager != null ? _gameManager.Distance : 0f;
+        float distance = _worldScroller != null ? _worldScroller.Distance : 0f;
         Vector3 camPos = _camera.transform.position;
 
         for (int i = 0; i < _layers.Length; i++)
