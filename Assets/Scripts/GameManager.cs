@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("Scene References")]
     [SerializeField] private PlayerBalloonController _player;
     [SerializeField] private WorldScroller _worldScroller;
+    [SerializeField] private PlayerDeathEffect _deathEffect;
 
     [Header("Health")]
     [SerializeField] private int _maxHealth = 3;
@@ -92,6 +93,8 @@ public class GameManager : MonoBehaviour
             _worldScroller.StartScrolling();
         }
 
+        if (_deathEffect != null) _deathEffect.ResetVisuals();
+
         if (_player != null)
         {
             _player.ResetTo(_checkpointPosition);
@@ -107,8 +110,11 @@ public class GameManager : MonoBehaviour
     {
         Current = State.Dead;
         _respawnTimer = _respawnDelay;
+
+        // Freeze everything first, then play the pop.
         if (_player != null) _player.enabled = false;
         if (_worldScroller != null) _worldScroller.StopScrolling();
+        if (_deathEffect != null) _deathEffect.Play();
     }
 
     public void Win()

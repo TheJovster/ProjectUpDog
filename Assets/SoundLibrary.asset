@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0efa990930f4674ba7c8a87c0879e95, type: 3}
+  m_Name: SoundLibrary
+  m_EditorClassIdentifier: Assembly-CSharp::SoundLibrary
+  collision: {fileID: 8300000, guid: 401f7c3c44a2b6448be9fdc7363502d5, type: 3}
+  pop: {fileID: 8300000, guid: e76123014b6d7ff4b8067eecdb97f4e6, type: 3}
+  death: {fileID: 8300000, guid: 6edae30e2217020488bf70bcb1325075, type: 3}
+  reinflate: {fileID: 0}
+  ascent: {fileID: 8300000, guid: b02a608c61e540940aa0d4fb0e090926, type: 3}
+  talkSqueak: {fileID: 8300000, guid: f9ce15580a66dc540a76efcab5f2a7c8, type: 3}
+  fan: {fileID: 0}
+  environmentCollision: {fileID: 0}
+  humanRising: {fileID: 0}
+  humanFalling: {fileID: 0}
+  soundtrack: {fileID: 8300000, guid: 2df311d1ead895441ab3569827931bf3, type: 3}
+  ambience: {fileID: 0}

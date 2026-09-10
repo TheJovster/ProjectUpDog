@@ -17,9 +17,14 @@ public class Hazard : MonoBehaviour
 
     private void TryHit(Collider2D other)
     {
-        if (_game == null) return;
+        if (_game == null)
+        {
+            Debug.LogWarning("Game Manager not set");
+            return;
+        }
         if (other.GetComponent<PlayerBalloonController>() == null) return;
 
+        Debug.Log("Player hit");
         _game.Damage(_damage);
         if (_disableOnHit) gameObject.SetActive(false);
     }

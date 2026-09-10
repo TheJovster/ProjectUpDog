@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: 0e4363a99a984c14c9d93aab2ba2e63f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 952040887094398405
+    second: bg_stars_0
+  - first:
+      213: 4233157002091444583
+    second: bg_stars_1
+  - first:
+      213: 2037000593559332772
+    second: bg_stars_2
+  - first:
+      213: 4583427740645658645
+    second: bg_stars_3
+  - first:
+      213: 3638005845603798296
+    second: bg_stars_4
+  - first:
+      213: 3343363153544493431
+    second: bg_stars_5
+  - first:
+      213: 5468976421310490615
+    second: bg_stars_6
+  - first:
+      213: 1015499095602837425
+    second: bg_stars_7
+  - first:
+      213: -541472484759948757
+    second: bg_stars_8
+  - first:
+      213: 5750375560229826175
+    second: bg_stars_9
+  - first:
+      213: 2431055165462791434
+    second: bg_stars_10
+  - first:
+      213: -5789254852393463427
+    second: bg_stars_11
+  - first:
+      213: 1255125081709650696
+    second: bg_stars_12
+  - first:
+      213: 3504102957383504183
+    second: bg_stars_13
+  - first:
+      213: -7298386282096187914
+    second: bg_stars_14
+  - first:
+      213: 1700288806752275943
+    second: bg_stars_15
+  - first:
+      213: -464908365811591245
+    second: bg_stars_16
+  - first:
+      213: 7289054147857455778
+    second: bg_stars_17
+  - first:
+      213: 2245333006039433790
+    second: bg_stars_18
+  - first:
+      213: 8954745836658333383
+    second: bg_stars_19
+  - first:
+      213: -1602368483624471808
+    second: bg_stars_20
+  - first:
+      213: 2698344531088073904
+    second: bg_stars_21
+  - first:
+      213: 1866604944780669511
+    second: bg_stars_22
+  - first:
+      213: 7836471263211077694
+    second: bg_stars_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bg_stars_0
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 1045
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cdc8e68424563d00800000000000000
+      internalID: 952040887094398405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_1
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 995
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7693e1c7dd13fba30800000000000000
+      internalID: 4233157002091444583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 946
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a72d525f31e44c10800000000000000
+      internalID: 2037000593559332772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_3
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 943
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5101bdefe3b9b9f30800000000000000
+      internalID: 4583427740645658645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_4
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 961
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d4206aa0bcc7230800000000000000
+      internalID: 3638005845603798296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_5
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 915
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77936220313066e20800000000000000
+      internalID: 3343363153544493431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_6
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 837
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7e23d4415b5eb40800000000000000
+      internalID: 5468976421310490615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_7
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 789
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b7332f0c07c71e00800000000000000
+      internalID: 1015499095602837425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_8
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 801
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b223c3ad4ad4c78f0800000000000000
+      internalID: -541472484759948757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_9
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 712
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7e2690fa107dcf40800000000000000
+      internalID: 5750375560229826175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_10
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 671
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a05c9ceeac7dcb120800000000000000
+      internalID: 2431055165462791434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_11
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 685
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7191e0726f68afa0800000000000000
+      internalID: -5789254852393463427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_12
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 605
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 803acf3ac991b6110800000000000000
+      internalID: 1255125081709650696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_13
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 625
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7315d3ff21311a030800000000000000
+      internalID: 3504102957383504183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_14
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 483
+        width: 150
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f5a21e485ce6ba90800000000000000
+      internalID: -7298386282096187914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_15
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 444
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7edca0649a3a89710800000000000000
+      internalID: 1700288806752275943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_16
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 402
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b751b2fd405c89f0800000000000000
+      internalID: -464908365811591245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_17
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 379
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aa91afd02ce72560800000000000000
+      internalID: 7289054147857455778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_18
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 285
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e32c0730976092f10800000000000000
+      internalID: 2245333006039433790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_19
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 241
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c69de7e4e5a54c70800000000000000
+      internalID: 8954745836658333383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_20
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 2
+        width: 73
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00338469a5e33c9e0800000000000000
+      internalID: -1602368483624471808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_21
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 133
+        width: 17
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b46f19fd02727520800000000000000
+      internalID: 2698344531088073904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_22
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 104
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 742b3adbe4387e910800000000000000
+      internalID: 1866604944780669511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_stars_23
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 136
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e30c040381db0cc60800000000000000
+      internalID: 7836471263211077694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bg_stars_0: 952040887094398405
+      bg_stars_1: 4233157002091444583
+      bg_stars_10: 2431055165462791434
+      bg_stars_11: -5789254852393463427
+      bg_stars_12: 1255125081709650696
+      bg_stars_13: 3504102957383504183
+      bg_stars_14: -7298386282096187914
+      bg_stars_15: 1700288806752275943
+      bg_stars_16: -464908365811591245
+      bg_stars_17: 7289054147857455778
+      bg_stars_18: 2245333006039433790
+      bg_stars_19: 8954745836658333383
+      bg_stars_2: 2037000593559332772
+      bg_stars_20: -1602368483624471808
+      bg_stars_21: 2698344531088073904
+      bg_stars_22: 1866604944780669511
+      bg_stars_23: 7836471263211077694
+      bg_stars_3: 4583427740645658645
+      bg_stars_4: 3638005845603798296
+      bg_stars_5: 3343363153544493431
+      bg_stars_6: 5468976421310490615
+      bg_stars_7: 1015499095602837425
+      bg_stars_8: -541472484759948757
+      bg_stars_9: 5750375560229826175
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
