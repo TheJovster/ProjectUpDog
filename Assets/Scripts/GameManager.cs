@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// Prototype god class: owns game state, health, checkpoint, death/respawn
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour
     [Header("Health")]
     [SerializeField] private int _maxHealth = 3;
 
+    [Tooltip("Seconds of invulnerability after taking a hit. Also absorbs duplicate collision callbacks from multi-collider setups.")]
+    [SerializeField] private float _invulnerabilityTime = 0.5f;
+
     [Header("Flow")]
     [SerializeField] private float _respawnDelay = 1.5f;
     [SerializeField] private Vector3 _startPosition = Vector3.zero;
@@ -28,6 +32,10 @@ public class GameManager : MonoBehaviour
     private Vector3 _checkpointPosition;
     private int _checkpointHealth;
     private float _respawnTimer;
+    private float _invulnerableUntil;
+
+    // Hazards and pickups consumed since the last checkpoint, re-enabled on respawn.
+    private readonly List<GameObject> _consumed = new List<GameObject>();
 
     private void Awake()
     {
@@ -37,6 +45,8 @@ public class GameManager : MonoBehaviour
         _checkpointHealth = _maxHealth;
         _checkpointPosition = _startPosition;
         _checkpointDistance = 0f;
+
+        Application.targetFrameRate = 60;
     }
 
     private void OnDestroy()
@@ -57,9 +67,14 @@ public class GameManager : MonoBehaviour
 
     // --- Health ---------------------------------------------------------
 
+    public bool IsInvulnerable => Time.time < _invulnerableUntil;
+
     public void Damage(int amount = 1)
     {
         if (Current != State.Playing) return;
+        if (IsInvulnerable) return;
+
+        _invulnerableUntil = Time.time + _invulnerabilityTime;
 
         Health -= amount;
         if (Health <= 0)
@@ -77,16 +92,34 @@ public class GameManager : MonoBehaviour
 
     // --- Checkpoints ----------------------------------------------------
 
+    /// Register something disabled during play so respawn can restore it.
+    public void RegisterConsumed(GameObject obj)
+    {
+        if (obj != null) _consumed.Add(obj);
+    }
+
     public void SetCheckpoint(Vector3 playerPosition)
     {
         _checkpointDistance = _worldScroller != null ? _worldScroller.Distance : 0f;
         _checkpointPosition = playerPosition;
         _checkpointHealth = Health;
+
+        // Anything consumed before this checkpoint stays consumed.
+        _consumed.Clear();
     }
 
     private void RespawnAtCheckpoint()
     {
         Health = _checkpointHealth;
+        _invulnerableUntil = 0f;
+
+        // Restore hazards and pickups taken since the checkpoint.
+        for (int i = 0; i < _consumed.Count; i++)
+        {
+            if (_consumed[i] != null) _consumed[i].SetActive(true);
+        }
+        _consumed.Clear();
+
         if (_worldScroller != null)
         {
             _worldScroller.SetDistance(_checkpointDistance);

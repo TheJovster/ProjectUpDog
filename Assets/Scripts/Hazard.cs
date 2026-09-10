@@ -17,15 +17,18 @@ public class Hazard : MonoBehaviour
 
     private void TryHit(Collider2D other)
     {
-        if (_game == null)
-        {
-            Debug.LogWarning("Game Manager not set");
-            return;
-        }
+        if (_game == null) return;
         if (other.GetComponent<PlayerBalloonController>() == null) return;
 
-        Debug.Log("Player hit");
+        // Invulnerable means the hit did not land, so do not consume the hazard.
+        if (_game.IsInvulnerable) return;
+
         _game.Damage(_damage);
-        if (_disableOnHit) gameObject.SetActive(false);
+
+        if (_disableOnHit)
+        {
+            _game.RegisterConsumed(gameObject);
+            gameObject.SetActive(false);
+        }
     }
 }

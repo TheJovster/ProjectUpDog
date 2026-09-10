@@ -21,7 +21,9 @@ public class BalloonRepairPickup : MonoBehaviour
         if (other.GetComponent<PlayerBalloonController>() == null) return;
 
         _game.Heal(_healAmount);
-        // Disabled rather than destroyed so a checkpoint restore could re-enable it.
+
+        // Disabled rather than destroyed so respawn can put it back.
+        _game.RegisterConsumed(gameObject);
         gameObject.SetActive(false);
     }
 }
